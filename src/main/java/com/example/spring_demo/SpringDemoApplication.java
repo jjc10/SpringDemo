@@ -9,15 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringDemoApplication implements CommandLineRunner {
 
-	@Autowired
-	private Musician onlyMusicianDefined;
+    @Autowired
+    private Musician onlyMusicianDefined;
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringDemoApplication.class, args);
+    }
 
-	@Override
-   public void run(String... strings) throws Exception {
-		onlyMusicianDefined.instrumentsPlayed();
-	}
+    @Override
+    public void run(String... strings) throws Exception {
+        onlyMusicianDefined.instrumentsPlayed();
+    }
 }
