@@ -1,5 +1,6 @@
 package com.example.spring_demo.controller;
 
+import com.example.librarysdk.Album;
 import com.example.spring_demo.model.musician.Musician;
 import com.example.spring_demo.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ public class TestController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/musicians")
     public ResponseEntity<List<Musician>> getMusicians() {
+        Album album = new Album("Gently Disturbed", 2008);
+        libraryService.getMusicians().stream().filter(musician -> musician.getName().contains("Avishai")).findFirst().ifPresent(musician -> musician.addAlbum(album));
         return new ResponseEntity<>(libraryService.getMusicians(), HttpStatus.OK);
     }
 }

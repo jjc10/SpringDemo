@@ -1,5 +1,6 @@
 package com.example.spring_demo.model.musician;
 
+import com.example.librarysdk.Album;
 import com.example.spring_demo.model.instrument.Instrument;
 
 import java.util.ArrayList;
@@ -11,12 +12,14 @@ public class Musician {
     private String genre;
     private int DOB; // date of birth
     private List<Instrument> instruments;
+    private List<Album> albums;
 
     public Musician(String name, String genre, int DOB) {
         this.name = name;
         this.genre = genre;
         this.DOB = DOB;
         this.instruments = new ArrayList<>();
+        this.albums = new ArrayList<>();
     }
 
     public Musician(String name, String genre, int DOB, List<Instrument> instruments) {
@@ -35,6 +38,10 @@ public class Musician {
         sb.delete(sb.length() - 2, sb.length());
         sb.append('.');
         System.out.println(sb.toString());
+    }
+
+    public void addAlbum(Album album) {
+        this.albums.add(album);
     }
 
     public String getName() {
@@ -67,5 +74,13 @@ public class Musician {
 
     public void setInstruments(List<Instrument> instruments) {
         this.instruments = instruments;
+    }
+
+    public List<Album> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<Album> albums) {
+        this.albums = albums;
     }
 }
